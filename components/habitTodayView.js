@@ -15,7 +15,7 @@ const habitTodayView = () => {
         <Text style={styles.sectionTitle}>Today's Habits</Text>
 
         <View style={styles.items}>
-            {/* This is where the habits wil go! */}
+            {/* This is where the habits will go! */}
             <Habit text={'Habit 1'} />
             <Habit text={'Habit 2'} />
         </View>
