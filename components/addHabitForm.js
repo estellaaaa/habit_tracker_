@@ -6,18 +6,17 @@ const AddHabitForm = ({ onAddHabit }) => {
   const [dueDate, setDueDate] = useState('');
 
   const handleAddHabit = () => {
-    // Perform any validation or additional logic if needed
     const newHabit = {
-      habitId: Date.now(), // You may want to generate a unique ID
+      habitId: Date.now(),
       name: habitName,
       dueDate: dueDate,
       isCompleted: false,
     };
 
-    // Call the onAddHabit callback with the new habit
+    {/*Call onAddHabit callback with new habit*/}
     onAddHabit(newHabit);
 
-    // Clear the form
+    {/*Clear the form*/}
     setHabitName('');
     setDueDate('');
   };
@@ -44,4 +43,4 @@ const AddHabitForm = ({ onAddHabit }) => {
   );
 };
 
-export default AddHabitForm;
+export default addHabitForm;
