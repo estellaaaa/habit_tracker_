@@ -56,4 +56,8 @@ const styles = StyleSheet.create({
 
 });
 
+const habits = [
+    
+]
+
 export default Habit;

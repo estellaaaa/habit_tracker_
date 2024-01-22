@@ -1,44 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet, Text, View } from 'react-native';
 import Habit from './components/habit';
-export default function App() {
+import SelectList from 'react-native-dropdown-select-list';
+import habitTodayView from './components/habitTodayView';
+import habitAllView from './components/habitAllView';
+import settingView from './components/settingView';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-
-      {/* Your Habits for today */}
-      <View style={styles.habitsWrapper}>
-        <Text style={styles.sectionTitle}>Today's Habits</Text>
-
-        <View style={styles.items}>
-          {/* This is where the habits wil go! */}
-          <Habit text={'Habit 1'} />
-          <Habit text={'Habit 2'} />
-        </View>
-
-      </View>
-
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="HabitDueToday"> {/* Set initial route here */}
+        <Stack.Screen name="HabitDueToday" component={HabitDueTodayView} />
+        <Stack.Screen name="HabitAll" component={HabitAllView} />
+        <Stack.Screen name="Settings" component={SettingsView} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#2E2929',
-  },
 
-  habitsWrapper: {
-    paddingTop: 20,
-    paddingHorizontal: 30,
-  },
-
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-
-  items: {
-    marginTop: 30,
-  }
 });
+
+export default App;
